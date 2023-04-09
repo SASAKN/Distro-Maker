@@ -49,7 +49,6 @@ var server = http.createServer(function (req, res) {
                     res.writeHead(200, { 'Content-Type': typeget(url) });
                     res.end(data + eout);
                 });
-
             } else {
                 res.statusCode = 500;
                 res.end();
