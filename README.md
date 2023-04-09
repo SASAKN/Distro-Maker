@@ -10,5 +10,4 @@ sudo chmod 775 ./factory.sh
 sudo apt install nodejs npm 
 sudo node ./server.js
 open localhost:1337/api 
-
 `
