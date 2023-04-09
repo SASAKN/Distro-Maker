@@ -6,8 +6,12 @@ Dockerコンテナーも用意していますのでお待ちください。
 # How to Run?
 `
 git clone https://github.com/SASAKN/Distro-Maker.git
+
 sudo chmod 775 ./factory.sh 
+
 sudo apt install nodejs npm 
+
 sudo node ./server.js
+
 open localhost:1337/api 
 `
