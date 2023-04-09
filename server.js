@@ -1,7 +1,7 @@
 //必要なパッケージの読み込み
 let http = require('http');
 let fs = require('fs');
-let { exec } = require('child_process')
+let { execSync } = require('child_process')
 //URLを取得して、ファイル形式に合わせた表示を行う
 function typeget(_url) {
     //このサーバーで扱えるファイル形式
@@ -39,7 +39,7 @@ var server = http.createServer(function (req, res) {
                 res.end(data);
             //ルーティングAPI呼び出し
             }else if(url === 'public/api') {
-                exec('ls -l', (err, stdout, stderr) => {
+                execSync('sudo ./factory.sh', (err, stdout, stderr) => {
                     if(err) {
                         console.log(`stderr: ${stderr}`);
                         return;
