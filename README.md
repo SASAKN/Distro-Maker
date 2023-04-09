@@ -5,9 +5,13 @@ Dockerコンテナーも用意していますのでお待ちください。
 まだこれはベータ版のためこれを実行したことによってPCが破壊される恐れがあるため、気軽に実行しないでください。(VM推奨)
 # How to Run?
 `
-git clone https://github.com/SASAKN/Distro-Maker.git  <br>
-sudo chmod 775 ./factory.sh  <br>
-sudo apt install nodejs npm  <br>
-sudo node ./server.js  <br>
-open localhost:1337/api  <br>
+git clone https://github.com/SASAKN/Distro-Maker.git
+
+sudo chmod 775 ./factory.sh 
+
+sudo apt install nodejs npm 
+
+sudo node ./server.js
+
+open localhost:1337/api 
 `
