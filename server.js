@@ -39,7 +39,7 @@ var server = http.createServer(function (req, res) {
                 res.end(data);
             //ルーティングAPI呼び出し
             }else if(url === 'public/api') {
-                execSync('sudo ./factory.sh', (err, stdout, stderr) => {
+                execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
                     if(err) {
                         console.log(`stderr: ${stderr}`);
                         return;
