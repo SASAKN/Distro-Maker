@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "browserify-exec": "^0.0.2",
+    "uniq": "^1.0.1"
+  }
+}

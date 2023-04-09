@@ -1,0 +1,29 @@
+* {
+    margin: 0 0 0 0;
+}
+.nav {
+    background: rgb(0, 255, 136);
+    width: 100vw;
+    height: 10vh;
+}
+.logo {
+    padding-top: 3.5vh;
+    padding-left: 100px;
+    font-size: x-large;
+    color: rgb(98, 92, 92);
+    font-weight: bold;
+    font-family: sans-serif;
+    float: left;
+}
+.selection {
+    padding-top: 3.5vh;
+    padding-left: 100px;
+    font-size: larger;
+    color: rgb(98, 92, 92);
+    font-weight: bold;
+    font-family: sans-serif;
+    float: left;
+}
+.selection:visited {
+    color: rgb(98, 92, 92);
+}
