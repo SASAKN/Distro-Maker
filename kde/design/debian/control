@@ -1,8 +1,8 @@
-Package: distro-maker-template-design
+Package: distro-maker-template-design-kde
 Version: 1.0
 Maintainer: SASAKEN <laze-hawkers0h@icloud.com>
 Section: unknown
 Priority: optional
 Architecture: all
 Depends: bash
-Description: DistroMakerの壁紙テンプレートです。
+Description: DistroMakerのKDEデザインテンプレートです。
