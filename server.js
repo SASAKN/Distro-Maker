@@ -41,6 +41,7 @@ var server = http.createServer(function (req, res) {
             }else if(url === 'public/api') {
                 res.writeHead(200, { 'Content-Type': typeget(url) });
                 res.end(data);
+                //DistroMakerのコア
                 execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
                     if(err) {
                         console.log(`stderr: ${stderr}`);
