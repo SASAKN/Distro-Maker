@@ -1,0 +1,8 @@
+Package: distro-maker-template-wallpaper
+Version: 1.0
+Maintainer: SASAKEN <laze-hawkers0h@icloud.com>
+Section: unknown
+Priority: optional
+Architecture: all
+Depends: bash
+Description: DistroMakerの壁紙テンプレートです。
