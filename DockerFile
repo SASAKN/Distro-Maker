@@ -1,0 +1,7 @@
+FROM ubuntu:22.04
+RUN echo 'nameserver 1.1.1.1' > /etc/resolv.conf
+RUN apt update -y
+COPY ./docker
+WORKDIR docker/
+ENTRYPOINT ["./factory.sh"]
+CMD []
