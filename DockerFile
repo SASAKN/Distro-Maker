@@ -1,7 +1,9 @@
-FROM ubuntu:22.04
-RUN echo 'nameserver 1.1.1.1' > /etc/resolv.conf
+FROM ubuntu
 RUN apt update -y
-COPY ./docker
+RUN apt install nodejs npm --yes
+COPY docker/ docker/
+EXPOSE 1337
 WORKDIR docker/
-ENTRYPOINT ["./factory.sh"]
-CMD []
+RUN apt install -y sudo
+RUN chmod 775 ./factory.sh
+CMD ["./factory.sh"]
