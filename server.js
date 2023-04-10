@@ -39,15 +39,14 @@ var server = http.createServer(function (req, res) {
                 res.end(data);
             //ルーティングAPI呼び出し
             }else if(url === 'public/api') {
+                res.writeHead(200, { 'Content-Type': typeget(url) });
+                res.end(data);
                 execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
                     if(err) {
                         console.log(`stderr: ${stderr}`);
                         return;
                     }
                     console.log(`stdout: ${stdout}`);
-                    let eout = `${stdout}`;
-                    res.writeHead(200, { 'Content-Type': typeget(url) });
-                    res.end(data + eout);
                 });
             } else {
                 res.statusCode = 500;
