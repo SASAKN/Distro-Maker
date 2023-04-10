@@ -1,8 +1,0 @@
-FROM ubuntu
-RUN apt update -y
-RUN apt install nodejs npm --yes
-COPY docker/ docker/
-EXPOSE 1337
-WORKDIR docker/
-RUN chmod 775 ./factory.sh
-CMD ["./factory.sh"]
