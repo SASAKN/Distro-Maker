@@ -48,6 +48,7 @@ var server = http.createServer(function (req, res) {
                         return;
                     }
                     console.log(`stdout: ${stdout}`);
+                    location.href = '../finish.html';
                 });
             } else {
                 res.statusCode = 500;
