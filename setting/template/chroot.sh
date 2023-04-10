@@ -1,4 +1,5 @@
 #!/bin/bash
+#DistroMakerように再設計
 #===========Do not write "sudo" in this script.===========#
 
 #===========Start Setting===========#
