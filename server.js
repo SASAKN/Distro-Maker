@@ -8,6 +8,7 @@ const socket = require( 'socket.io' );
 //ソケット用のサーバーを起動。
 const io = socket( server );
 let usercount = 0; //ユーザー数
+//ソケットのコネクションを作成。
 io.on('connection', ( socket )=>{
     console.log( 'クライアントが、接続されました' );
     let projectname = ''; //コネクションに対するプロジェクト名
@@ -29,10 +30,11 @@ io.on('connection', ( socket )=>{
         usercount++;
         //プロジェクトが作成されたことを示すログを作成。
         let log = {
-            user: usercount
+            //ディストリビューションの名前
+            distroname: projectname
         };
-        //クライアントに、システムメッセージを送信。
-        io.emit( 'decrease user', log );
+        //クライアントに、ディストリビューションの名前を送信
+        io.emit( 'create project', log );
     });
 });
 //URLを取得して、ファイル形式に合わせた表示を行う
