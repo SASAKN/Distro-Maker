@@ -5,7 +5,7 @@ socket.on('connect', () => {
 });
 function createdistro(){
     console.log('Distro Maker のサーバーのソケットに接続しました。');
-    
-    socket.emit( 'create distro',  );
+    const distroname = document.getElementById('distro').value;
+    socket.emit( 'create distro',  distroname);
 }
 
