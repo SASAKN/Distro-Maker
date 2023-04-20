@@ -69,7 +69,7 @@ function typeget(_url) {
     return 'text/plain';
 }
 //リクエストを受信した時
-http.createServer(function (req, res) {
+var server = http.createServer(function (req, res) {
     //リクエストが、/で終わるならば、index.htmlをつける、そうでなければURLを表示。
     var url = 'public' + (req.url.endsWith('/') ? req.url + 'index.html' : req.url);
     //URLを表示
