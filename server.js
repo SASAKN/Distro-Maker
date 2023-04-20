@@ -10,6 +10,8 @@ const io = socket( server );
 let usercount = 0; //ユーザー数
 io.on('connection', ( socket )=>{
     console.log( 'クライアントが、接続されました' );
+    let projectname = ''; //コネクションに対するプロジェクト名
+    //接続解除の処理
     socket.on('disconnect',()=>{
         console.log('クライアントが減りました。');
         //ユーザー数を減らす
@@ -20,7 +22,18 @@ io.on('connection', ( socket )=>{
         };
         //クライアントに、システムメッセージを送信。
         io.emit( 'decrease user', log );
-    })
+    });
+    socket.on('create distro',()=>{
+        console.log('ディストリビューションの設定が新規作成されました。');
+        //ユーザー数を増やす
+        usercount++;
+        //プロジェクトが作成されたことを示すログを作成。
+        let log = {
+            user: usercount
+        };
+        //クライアントに、システムメッセージを送信。
+        io.emit( 'decrease user', log );
+    });
 });
 //URLを取得して、ファイル形式に合わせた表示を行う
 function typeget(_url) {
