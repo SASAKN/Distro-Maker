@@ -9,16 +9,16 @@ let { execSync } = require('child_process')
 //ここからソケットの処理
 //----------------------------------------------------------
 
-const socket = require( 'socket.io' );
+const socket = require('socket.io');
 //ソケット用のサーバーを起動。
-const io = socket( server );
+const io = socket(server);
 let usercount = 0; //ユーザー数
 //ソケットのコネクションを作成。
-io.on('connection', ( socket )=>{
-    console.log( 'クライアントが、接続されました' );
+io.on('connection', (socket) => {
+    console.log('クライアントが、接続されました');
     let projectname = ''; //コネクションに対するプロジェクト名
     //接続解除の処理
-    socket.on('disconnect',()=>{
+    socket.on('disconnect', () => {
         console.log('クライアントが減りました。');
         //ユーザー数を減らす
         usercount--;
@@ -27,10 +27,12 @@ io.on('connection', ( socket )=>{
             user: usercount
         };
         //クライアントに、システムメッセージを送信。
-        io.emit( 'decrease user', log );
+        io.emit('decrease user', log);
     });
-    socket.on('create distro',()=>{
+    socket.on('create distro', (distroname_) => {
         console.log('ディストリビューションの設定が新規作成されました。');
+        //コネクションごとにDistroMakerのディストリビューション名を作成。
+        projectname = distroname_;
         //ユーザー数を増やす
         usercount++;
         //プロジェクトが作成されたことを示すログを作成。
@@ -39,7 +41,7 @@ io.on('connection', ( socket )=>{
             distroname: projectname
         };
         //クライアントに、ディストリビューションの名前を送信
-        io.emit( 'create project', log );
+        io.emit('create project', log);
     });
 });
 
@@ -82,13 +84,13 @@ var server = http.createServer(function (req, res) {
                 //正常に通信できたということを伝える。
                 res.writeHead(200, { 'Content-Type': typeget(url) });
                 res.end(data);
-            //ルーティングAPI呼び出し
-            }else if(url === 'public/api') {
+                //ルーティングAPI呼び出し
+            } else if (url === 'public/api') {
                 res.writeHead(200, { 'Content-Type': typeget(url) });
                 res.end(data);
                 //DistroMakerのコア
                 execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
-                    if(err) {
+                    if (err) {
                         console.log(`stderr: ${stderr}`);
                         return;
                     }
