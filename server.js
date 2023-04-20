@@ -1,6 +1,8 @@
 //必要なパッケージの読み込み
 let http = require('http');
 let fs = require('fs');
+//ExecSyncで同期実行を行う。
+let { execSync } = require('child_process')
 //Web Socketを利用して、人数を制限。
 const socket = require( 'socket.io' );
 //ソケット用のサーバーを起動。
@@ -20,7 +22,6 @@ io.on('connection', ( socket )=>{
         io.emit( 'decrease user', log );
     })
 });
-let { execSync } = require('child_process')
 //URLを取得して、ファイル形式に合わせた表示を行う
 function typeget(_url) {
     //このサーバーで扱えるファイル形式
