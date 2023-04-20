@@ -1,6 +1,7 @@
 //必要なパッケージの読み込み
 let http = require('http');
 let fs = require('fs');
+var server = http.createServer(handler)
 const socket = require('socket.io');
 let { execSync } = require('child_process');
 
@@ -10,7 +11,7 @@ let { execSync } = require('child_process');
 
 
 //ソケット用のサーバーを起動。
-const io = socket(server);
+const io = socket( server );
 let usercount = 0; //ユーザー数
 //ソケットのコネクションを作成。
 io.on('connection', (socket) => {
