@@ -12,7 +12,12 @@ io.on('connection', ( socket )=>{
         console.log('クライアントが減りました。');
         //ユーザー数を減らす
         usercount--;
-        io.emit( '', objMessage );
+        //システムログを作成
+        let log = {
+            user: usercount
+        };
+        //クライアントに、システムメッセージを送信。
+        io.emit( '', log );
     })
 });
 let { execSync } = require('child_process')
