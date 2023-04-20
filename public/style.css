@@ -41,9 +41,15 @@
     text-align: center;
     left: 0;
 }
-#load h1{
+#load .lt{
     color: white;
     font-size: xx-large;
     transform: translateY(230%);
+    font-weight: bold;
+}
+#load #wtext{
+    color: white;
+    font-size: xx-large;
+    transform: translateY(790%);
     font-weight: bold;
 }
