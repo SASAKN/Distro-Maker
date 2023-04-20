@@ -27,3 +27,22 @@
 .selection:visited {
     color: rgb(98, 92, 92);
 }
+#load{
+    z-index: 9999;
+    background: black;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    font-size: xx-large;
+    font-weight: bolder;
+    transition: all 1s;
+    text-align: center;
+    left: 0;
+}
+#load h1{
+    color: white;
+    font-size: xx-large;
+    font-weight: bold;
+}

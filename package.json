@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SASAKN/Distro-Maker/issues"
   },
-  "homepage": "https://github.com/SASAKN/Distro-Maker#readme"
+  "homepage": "https://github.com/SASAKN/Distro-Maker#readme",
+  "dependencies": {
+    "bulma": "^0.9.4"
+  }
 }
