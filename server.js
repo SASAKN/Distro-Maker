@@ -1,15 +1,14 @@
 //必要なパッケージの読み込み
 let http = require('http');
 let fs = require('fs');
-//ExecSyncで同期実行を行う。
-let { execSync } = require('child_process')
-//Web Socketを利用して、人数を制限。
+const socket = require('socket.io');
+let { execSync } = require('child_process');
 
 //----------------------------------------------------------
 //ここからソケットの処理
 //----------------------------------------------------------
 
-const socket = require('socket.io');
+
 //ソケット用のサーバーを起動。
 const io = socket(server);
 let usercount = 0; //ユーザー数
@@ -70,7 +69,7 @@ function typeget(_url) {
     return 'text/plain';
 }
 //リクエストを受信した時
-var server = http.createServer(function (req, res) {
+http.createServer(function (req, res) {
     //リクエストが、/で終わるならば、index.htmlをつける、そうでなければURLを表示。
     var url = 'public' + (req.url.endsWith('/') ? req.url + 'index.html' : req.url);
     //URLを表示
