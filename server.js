@@ -17,7 +17,7 @@ io.on('connection', ( socket )=>{
             user: usercount
         };
         //クライアントに、システムメッセージを送信。
-        io.emit( '', log );
+        io.emit( 'decrease user', log );
     })
 });
 let { execSync } = require('child_process')
