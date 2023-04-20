@@ -1,6 +1,20 @@
 //必要なパッケージの読み込み
 let http = require('http');
 let fs = require('fs');
+//Web Socketを利用して、人数を制限。
+const socket = require( 'socket.io' );
+//ソケット用のサーバーを起動。
+const io = socket( server );
+let usercount = 0; //ユーザー数
+io.on('connection', ( socket )=>{
+    console.log( 'クライアントが、接続されました' );
+    socket.on('disconnect',()=>{
+        console.log('クライアントが減りました。');
+        //ユーザー数を減らす
+        usercount--;
+        io.emit( '', objMessage );
+    })
+});
 let { execSync } = require('child_process')
 //URLを取得して、ファイル形式に合わせた表示を行う
 function typeget(_url) {

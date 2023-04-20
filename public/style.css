@@ -32,7 +32,7 @@
     background: black;
     position: fixed;
     top:0;
-    animation: 20s bg-color infinite;
+    animation: 30s bg-color forwards ease-in-out;
     width: 100vw;
     height: 100vh;
     color: white;
@@ -160,6 +160,7 @@
   
   @keyframes bg-color {
     0% {
+      transform: translateX(9000px);
       background-color: #dc3434;
     }
   
@@ -168,6 +169,7 @@
     }
   
     10% {
+      transform: translateX(0px);
       background-color: #faf200;
     }
   
@@ -238,6 +240,7 @@
   
     100% {
       background-color: rgb(255, 255, 255);
+      transform: translateX(-9000px);
     }
   }
   
