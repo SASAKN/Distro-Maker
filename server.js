@@ -27,5 +27,15 @@ io.on('connection', (socket) => {
     //切断したとき
     socket.on('disconnect', () => {
         console.log('接続が切断されました。');
+        if (projectname) {
+            //ユーザーカウントを減らす
+            usercount--;
+            //ログを作成。
+            const log = {
+                distroname: projectname
+            };
+            //それをクライアントに送信
+            io.emit('dicrease user', log);
+        }
     });
 });
