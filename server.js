@@ -70,6 +70,7 @@ io.on('connection', (socket) => {
 
 // 公開フォルダの指定
 app.use( express.static( __dirname + '/public' ) );
+
 server.listen(PORT,()=>{
 console.log('サーバー稼働中...')
 });
