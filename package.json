@@ -19,6 +19,7 @@
   "homepage": "https://github.com/SASAKN/Distro-Maker#readme",
   "dependencies": {
     "bulma": "^0.9.4",
+    "express": "^4.18.2",
     "socket.io": "^4.6.1"
   }
 }
