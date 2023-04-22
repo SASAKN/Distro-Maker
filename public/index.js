@@ -1,5 +1,4 @@
-//クライアントのソケットの処理
-const socket = io.connect();
+
 socket.on('connect', () => {
         console.log('接続しました。');
 });

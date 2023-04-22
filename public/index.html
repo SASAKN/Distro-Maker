@@ -32,7 +32,10 @@
         <p>DIstro Name</p>
         <input class="input is-large" id="distro" type="text" placeholder="Large input">
     </main>
+    <script type="module">
+        import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
+const socket = io();
+      </script>
     <script src="index.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
 </body>
 </html>

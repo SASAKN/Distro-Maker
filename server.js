@@ -1,55 +1,31 @@
-//必要なパッケージの読み込み
-let http = require('http');
-let express = require('express');
+'use strict';
+//各種モジュールの読み込み
+const express = require('express');
+const http = require('http');
 const socketIO = require('socket.io');
-let { execSync } = require('child_process');
+
 //オブジェクトの作成
 const app = express();
-const server = http.Server( app );
-const io = socketIO( server );
+const server = http.Server(app);
+const io = socketIO(server);
 
-//----------------------------------------------------------
-//ここからソケットの処理
-//----------------------------------------------------------
+//ポート番号
+const PORT = process.env.PORT || 1337;
 
+//====================================
+//ソケットの処理
+//====================================
 
-//ソケット用のサーバーを起動。
-let usercount = 0; //ユーザー数
-//ソケットのコネクションを作成。
+//ユーザーのカウント
+let usercount = 0;
+
 io.on('connection', (socket) => {
-    console.log('クライアントが、接続されました');
-    let projectname = ''; //コネクションに対するプロジェクト名
-    //接続解除の処理
+    console.log('connection');
+    //プロジェクト名
+    let projectname = '';
+
+    //切断したとき
     socket.on('disconnect', () => {
-        console.log('クライアントが減りました。');
-        //ユーザー数を減らす
-        usercount--;
-        //システムログを作成
-        let log = {
-            user: usercount
-        };
-        //クライアントに、システムメッセージを送信。
-        io.emit('decrease user', log);
-    });
-    socket.on('create distro', (distroname_) => {
-        console.log('ディストリビューションの設定が新規作成されました。');
-        //コネクションごとにDistroMakerのディストリビューション名を作成。
-        projectname = distroname_;
-        //ユーザー数を増やす
-        usercount++;
-        //プロジェクトが作成されたことを示すログを作成。
-        let log = {
-            //ディストリビューションの名前
-            distroname: projectname
-        };
-        //クライアントに、ディストリビューションの名前を送信
-        io.emit('create project', log);
+        console.log('接続が切断されました。');
     });
 });
-
-//----------------------------------------------------------
-//ここからサーバーの処理
-//----------------------------------------------------------
-app.use( express.static( __dirname + '/public' ) );
-server.listen(1337, 'localhost');
-//APIをルーティングで作れば簡単に通信できる。
