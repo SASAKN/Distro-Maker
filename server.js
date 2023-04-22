@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
         }
     });
     //ディストリビューションを作成するイベントが起きた時
-    socket.on('create distro', ( projectname_ ) => {
+    socket.on('create distro', (projectname_) => {
         console.log('ユーザーが、新しいディストリビューションを作成しようとしています。');
         //コネクションごとにプロジェクトネームを設定
         projectname = projectname_;
@@ -53,14 +53,23 @@ io.on('connection', (socket) => {
         //現時点では、まだ同時実行不可能。
 
         //スクリプトの実行
+        //これを消すと作動しなくなるため注意
         execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
-            if(err) {
+            if (err) {
                 console.log(`stderr: ${stderr}`);
                 return;
             }
             console.log(`stdout: ${stdout}`);
             location.href = 'public/finish.html';
         });
-        
     });
+});
+//====================================
+//サーバーの処理
+//====================================
+
+// 公開フォルダの指定
+app.use( express.static( __dirname + '/public' ) );
+server.listen(PORT,()=>{
+console.log('サーバー稼働中...')
 });
