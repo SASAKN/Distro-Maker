@@ -1,6 +1,8 @@
-
 socket.on('connect', () => {
         console.log('接続しました。');
+});
+socket.on('connect', () => {
+    console.log('接続しました。');
 });
 function createdistro(){
     console.log('Distro Maker のサーバーのソケットに接続しました。');
