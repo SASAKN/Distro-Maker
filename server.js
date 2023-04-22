@@ -3,6 +3,7 @@
 const express = require('express');
 const http = require('http');
 const fs = require('fs');
+const { execSync } = require('child_process');
 const socketIO = require('socket.io');
 
 //オブジェクトの作成
@@ -39,7 +40,7 @@ io.on('connection', (socket) => {
             io.emit('dicrease user', log);
         }
     });
-    //切断したとき
+    //ディストリビューションを作成するイベントが起きた時
     socket.on('create distro', ( projectname_ ) => {
         console.log('ユーザーが、新しいディストリビューションを作成しようとしています。');
         //コネクションごとにプロジェクトネームを設定
@@ -49,8 +50,17 @@ io.on('connection', (socket) => {
         usercount++;
 
         //インターネットからダウンロード
-        let directoryname = projectname + usercount;
+        //現時点では、まだ同時実行不可能。
 
-
+        //スクリプトの実行
+        execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
+            if(err) {
+                console.log(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+            location.href = 'public/finish.html';
+        });
+        
     });
 });
