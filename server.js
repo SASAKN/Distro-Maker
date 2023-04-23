@@ -54,14 +54,14 @@ io.on('connection', (socket) => {
 
         //スクリプトの実行
         //これを消すと作動しなくなるため注意
-        /* execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
+        execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
             if (err) {
                 console.log(`stderr: ${stderr}`);
                 return;
             }
             console.log(`stdout: ${stdout}`);
             location.href = 'public/finish.html';
-        }); */
+        }); 
     });
 });
 //====================================
