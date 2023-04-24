@@ -30,6 +30,7 @@ const PORT = process.env.PORT || 1337;
 let usercount = 0;
 io.on('connection', function (socket) {
     console.log('1台の接続');
+    const user = '';
     socket.on('create', function (distro) {
         usercount++;
         //次、インターネットからダウンロードを実装するために必要。
@@ -54,9 +55,11 @@ io.on('connection', function (socket) {
                 break;
         };
     });
-    socket.on('logout', function () {
-        usercount--;
-        console.log(usercount);
+    //接続の切断
+    socket.on('disconnect', function () {
+            usercount--;
+            console.log('1台の退出')
+            console.log(usercount);
     });
 });
 

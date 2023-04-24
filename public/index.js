@@ -6,7 +6,7 @@ document.getElementById('submit').addEventListener('click', function(e){
     e.preventDefault();
     socket.emit('create', distroname);
     distroname = '';
-    location.href = './404.html';
+   // location.href = './404.html';
 });
 socket.on('disconnect', ()=>{
     socket.emit('logout');
