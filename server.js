@@ -42,7 +42,7 @@ io.on('connection', function (socket) {
                 break;
             case 'darwin':
                 runerorr();
-                console.log('Mac OS 12にまだ対応していません。');
+                console.log('Mac OS にまだ対応していません。');
                 console.log(usercount);
                 break;
             case 'win32':
@@ -54,8 +54,9 @@ io.on('connection', function (socket) {
                 break;
         };
     });
-    socket.on('disconnect', function () {
+    socket.on('logout', function () {
         usercount--;
+        console.log(usercount);
     });
 });
 
