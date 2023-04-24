@@ -41,18 +41,19 @@ io.on('connection', function (socket) {
         const distrofolder = distro + usercount;
         //DIstroMakerは、Factoryを実行します。
         //クロスプラットフォーム
-        //Linuxならば、そのまま実行！
         switch (process.platform) {
             case 'linux':
                 linuxrun();
                 break;
             case 'darwin':
-                dockerrun();
+                runerorr();
+                console.log('Mac OS 12にまだ対応していません。');
                 break;
             case 'win32':
-                dockerrun();
+                runerorr();
+                console.log('Windowsにまだ対応していません。');
                 break;
-            case 'haiku':
+            default:
                 runerorr();
                 break;
         };
