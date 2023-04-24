@@ -7,6 +7,3 @@ document.getElementById('submit').addEventListener('click', function(e){
     socket.emit('create', distroname);
     distroname = '';
 });
-socket.on('', function(){
-
-});

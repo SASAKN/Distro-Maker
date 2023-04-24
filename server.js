@@ -55,7 +55,7 @@ io.on('connection', function (socket) {
             case 'haiku':
                 runerorr();
                 break;
-        }
+        };
     });
 });
 
