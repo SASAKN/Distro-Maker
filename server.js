@@ -1,17 +1,12 @@
 'use strict';
 //各種モジュールの読み込み
-const express = require('express');
-const http = require('http');
+const app  = require("express")();
+const server = require("http").createServer(app);
+const io   = require("socket.io")(http);
 const fs = require('fs');
 const { execSync } = require('child_process');
-const socketIO = require('socket.io');
 
-//オブジェクトの作成
-const app = express();
-const server = http.Server(app);
-const io = socketIO(server);
 //関数
-//Linuxでの実行方法
 function linuxrun() {
     execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
         if (err) {
