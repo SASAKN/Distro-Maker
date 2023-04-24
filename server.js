@@ -2,7 +2,7 @@
 //各種モジュールの読み込み
 const app  = require("express")();
 const server = require("http").createServer(app);
-const io   = require("socket.io")(http);
+const io   = require("socket.io")(server);
 const fs = require('fs');
 const { execSync } = require('child_process');
 
@@ -19,7 +19,7 @@ function linuxrun() {
 }
 function runerorr() {
     //エラー発生。
-    location.href = 'public/404.html';
+    console.log('未対応機種です。');
 }
 //ポート番号
 const PORT = process.env.PORT || 1337;
@@ -43,6 +43,7 @@ io.on('connection', function (socket) {
             case 'darwin':
                 runerorr();
                 console.log('Mac OS 12にまだ対応していません。');
+                console.log(usercount);
                 break;
             case 'win32':
                 runerorr();
@@ -53,13 +54,16 @@ io.on('connection', function (socket) {
                 break;
         };
     });
+    socket.on('disconnect', function () {
+        usercount--;
+    });
 });
 
 //====================================
 //サーバーの処理
 //====================================
 // 公開フォルダの指定
-app.use(express.static(__dirname + '/public'));
+app.use(require("express").static(__dirname + '/public'));
 
 server.listen(PORT, () => {
     console.log('サーバー稼働中...')
