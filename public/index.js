@@ -8,3 +8,6 @@ document.getElementById('submit').addEventListener('click', function(e){
     distroname = '';
     location.href = './404.html';
 });
+socket.on('disconnect', ()=>{
+    socket.emit('logout');
+});
