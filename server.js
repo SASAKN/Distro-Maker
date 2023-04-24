@@ -10,14 +10,54 @@ const socketIO = require('socket.io');
 const app = express();
 const server = http.Server(app);
 const io = socketIO(server);
-
+//関数
+//Linuxでの実行方法
+function linuxrun() {
+    execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
+        if (err) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+        location.href = 'public/finish.html';
+    });
+}
+function runerorr() {
+    //エラー発生。
+    location.href = 'public/404.html';
+}
 //ポート番号
 const PORT = process.env.PORT || 1337;
 
 //====================================
 //ソケットの処理
 //====================================
-
+let usercount = 0;
+io.on('connection', function (socket) {
+    console.log('1台の接続');
+    socket.on('create', function (distro) {
+        usercount++;
+        //次、インターネットからダウンロードを実装するために必要。
+        const distrofolder = distro + usercount;
+        //DIstroMakerは、Factoryを実行します。
+        //クロスプラットフォーム
+        //Linuxならば、そのまま実行！
+        switch (process.platform) {
+            case 'linux':
+                linuxrun();
+                break;
+            case 'darwin':
+                dockerrun();
+                break;
+            case 'win32':
+                dockerrun();
+                break;
+            case 'haiku':
+                runerorr();
+                break;
+        }
+    });
+});
 
 //====================================
 //サーバーの処理

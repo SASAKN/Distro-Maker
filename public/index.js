@@ -1,12 +1,12 @@
-socket.on('connect', () => {
-        console.log('接続しました。');
+var socket = io();
+var distroname = document.getElementById('distro').value;
+//SOcket.ioの利用について。
+//SOcket.ioは、「clean」、「create」「connect」、「remove」「login」、「logout」を用意する。
+document.getElementById('submit').addEventListener('click', function(e){
+    e.preventDefault();
+    socket.emit('create', distroname);
+    distroname = '';
 });
-socket.on('connect', () => {
-    console.log('接続しました。');
-});
-function createdistro(){
-    console.log('Distro Maker のサーバーのソケットに接続しました。');
-    const distroname = document.getElementById('distro').value;
-    socket.emit( 'create distro',  distroname);
-}
+socket.on('', function(){
 
+});
