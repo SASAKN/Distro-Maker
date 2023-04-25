@@ -12,7 +12,7 @@ const { execSync } = require('child_process');
 
 //Linux
 function linuxrun() {
-    execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
+    execSync('sudo bash -c "./step1.sh"', (err, stdout, stderr) => {
         if (err) {
             console.log(`stderr: ${stderr}`);
             return;
