@@ -12,13 +12,16 @@ const { execSync } = require('child_process');
 
 //Linux
 function linuxrun() {
-    execSync('sudo bash -c "./step1.sh"', (err, stdout, stderr) => {
-        if (err) {
-            console.log(`stderr: ${stderr}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-    });
+    for(var i = 1; i < 6; i++ ){
+        execSync('sudo bash -c "./command/step' + i + '.sh"', (err, stdout, stderr) => {
+            if (err) {
+                console.log(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+        socket.emit('wait')
+    }
 }
 //例外
 function runerorr() {

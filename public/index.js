@@ -11,3 +11,6 @@ document.getElementById('submit').addEventListener('click', function(e){
 socket.on('disconnect', ()=>{
     socket.emit('logout');
 });
+socket.on('wait', ()=>{
+    //待つ処理。
+});
