@@ -14,7 +14,7 @@ function linuxrun() {
             return;
         }
         console.log(`stdout: ${stdout}`);
-        location.href = 'public/finish.html';
+
     });
 }
 function runerorr() {
@@ -25,7 +25,7 @@ function runerorr() {
 const PORT = process.env.PORT || 1337;
 
 //====================================
-//ソケットの処理
+//============ソケットの処理
 //====================================
 let usercount = 0;
 io.on('connection', function (socket) {
@@ -64,7 +64,7 @@ io.on('connection', function (socket) {
 });
 
 //====================================
-//サーバーの処理
+//============サーバーの処理
 //====================================
 // 公開フォルダの指定
 app.use(require("express").static(__dirname + '/public'));
