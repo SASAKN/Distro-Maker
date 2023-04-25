@@ -20,7 +20,7 @@ function linuxrun() {
             }
             console.log(`stdout: ${stdout}`);
         });
-        socket.emit('wait')
+        socket.emit('wait');
     }
 }
 //例外

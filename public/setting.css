@@ -1,0 +1,44 @@
+
+.setting{
+    background: rgb(255, 255, 255);
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vw;
+    transition: all 1s ease-in-out;
+} 
+.close{
+    transform: translateX(-6000px);
+}
+.back{
+    transform: translateX(0px);
+}
+#setting1{
+    background-color: rgb(127, 136, 255);
+    z-index: 9999;
+}
+#setting2{
+    background-color: rgb(255, 127, 219);
+    z-index: 9998;
+}
+#setting3{
+    background-color: rgb(127, 176, 255);
+    z-index: 9997;
+}
+#setting4{
+    background-color: rgb(255, 127, 127);
+    z-index: 9996;
+}
+#setting5{
+    background-color: rgb(255, 251, 127);
+    z-index: 9995;
+}
+#setting6{
+    background-color: rgb(255, 127, 219);
+    z-index: 9994;
+}
+#setting7{
+    background-color: rgb(127, 217, 255);
+    z-index: 9993;
+}
