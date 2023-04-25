@@ -1,12 +1,16 @@
 'use strict';
 //各種モジュールの読み込み
-const app  = require("express")();
+const app = require("express")();
 const server = require("http").createServer(app);
-const io   = require("socket.io")(server);
+const io = require("socket.io")(server);
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-//関数
+//===================================================================
+//============Distro Maker がコマンドを実行するために必要な関数
+//===================================================================
+
+//Linux
 function linuxrun() {
     execSync('sudo bash -c "./factory.sh"', (err, stdout, stderr) => {
         if (err) {
@@ -14,9 +18,9 @@ function linuxrun() {
             return;
         }
         console.log(`stdout: ${stdout}`);
-
     });
 }
+//例外
 function runerorr() {
     //エラー発生。
     console.log('未対応機種です。');
@@ -57,9 +61,9 @@ io.on('connection', function (socket) {
     });
     //接続の切断
     socket.on('disconnect', function () {
-            usercount--;
-            console.log('1台の退出')
-            console.log(usercount);
+        usercount--;
+        console.log('1台の退出')
+        console.log(usercount);
     });
 });
 
