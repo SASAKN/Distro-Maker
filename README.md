@@ -1,3 +1,2 @@
 # Distro-Maker
-A Easy Linux distro Build Tool.
-DistroMakerは、現在Linux環境で、実行できるサーバーアプリケーションです。
+A easy-to-use Build tool for creating Linux distributions
