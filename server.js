@@ -52,6 +52,7 @@ io.on('connection', function (socket) {
                 runerorr();
                 console.log('Mac OS にまだ対応していません。');
                 console.log(usercount);
+                console.log(distrofolder);
                 break;
             case 'win32':
                 runerorr();
