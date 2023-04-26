@@ -22,10 +22,11 @@
         </div>
       </div>
       <form id="distroname">
-        <input class="input is-large is-primary" id="distro" type="text" placeholder="Distro Name">
-        <button id="submit" class="button is-info" type="button">Let's Create !</button>
+        <input class="input is-large is-primary" id="distro" type="text" placeholder="Distro Name" pattern="^[0-9A-Za-z]+$">
+        <button id="sdistroname" class="button is-info" type="submit">Let's Create !</button>
       </form>
       <br>
+      <p class="eroor">間違っています。英数字で入力し直してください。</p>
       <a class="button is-info">Next ></a>
       <a class="button is-warning">Back < </a>
     </div>
@@ -67,6 +68,8 @@
       <a class="button is-info">Next ></a>
     </div>
   </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="setting.js"></script>
 </body>
 
 </html>
