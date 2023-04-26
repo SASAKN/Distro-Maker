@@ -65,7 +65,7 @@ io.on('connection', function (socket) {
     //接続の切断
     socket.on('disconnect', function () {
         usercount--;
-        console.log('1台の退出')
+        console.log('1台の退出');
         console.log(usercount);
     });
 });
@@ -77,5 +77,5 @@ io.on('connection', function (socket) {
 app.use(require("express").static(__dirname + '/public'));
 
 server.listen(PORT, () => {
-    console.log('サーバー稼働中...')
+    console.log('サーバー稼働中...');
 });
