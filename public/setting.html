@@ -1,69 +1,72 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DistroMakerで、Linux を作成。</title>
-    <link rel="stylesheet" href="setting.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DistroMakerで、Linux を作成。</title>
+  <link rel="stylesheet" href="setting.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
+
 <body>
-   <div class="settingbox">
+  <div class="settingbox">
     <div class="setting" id="setting1">
-        <div class="card">
-            <div class="card-content">
-              <br>
-              <div class="content">
-                ディストリビューションの名前を入力してください。
-              </div>
-            </div>
-          </div>
-        <form id="frm-post">
-            <input class="input is-large is-primary" id="distro" type="text" placeholder="Large input">
-            <button id="submit" class="button is-info">Let's Create !</button>
-          </form>
+      <div class="card">
+        <div class="card-content">
           <br>
-        <a class="button is-info">Next ></a>
-        <a class="button is-warning">Back < </a>
+          <div class="content">
+            ディストリビューションの名前を入力してください。
+          </div>
+        </div>
+      </div>
+      <form id="distroname">
+        <input class="input is-large is-primary" id="distro" type="text" placeholder="Distro Name">
+        <button id="submit" class="button is-info" type="button">Let's Create !</button>
+      </form>
+      <br>
+      <a class="button is-info">Next ></a>
+      <a class="button is-warning">Back < </a>
     </div>
     <div class="setting" id="setting2">
-        <div class="card">
-            <div class="card-content">
-              <div class="content">
-                アプリケーションの選択をしてください。
-              </div>
-            </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            アプリケーションの選択をしてください。
           </div>
-        <form id="frm-post">
-            <input type="checkbox" name="chrome" id="">
-            <label for="chrome"> 
-                Google Chrome
-            </label>
-            <input type="checkbox" name="edge" id="">
-            <label for="chrome"> 
-                Microsoft edge
-            </label>
+        </div>
+      </div>
+      <form id="frm-post">
+        <input type="checkbox" name="chrome" id="">
+        <label for="chrome">
+          Google Chrome
+        </label>
+        <input type="checkbox" name="edge" id="">
+        <label for="chrome">
+          Microsoft edge
+        </label>
 
-          </form>
-        <a class="button is-info">Next ></a>
-        <a class="button is-warning">Back < </a>
+      </form>
+      <a class="button is-info">Next ></a>
+      <a class="button is-warning">Back < </a>
     </div>
     <div class="setting" id="setting3">
-        <a class="button is-info">Next ></a>
+      <a class="button is-info">Next ></a>
     </div>
     <div class="setting" id="setting4">
-        <a class="button is-info">Next ></a>
+      <a class="button is-info">Next ></a>
     </div>
     <div class="setting" id="setting5">
-        <a class="button is-info">Next ></a>
+      <a class="button is-info">Next ></a>
     </div>
     <div class="setting" id="setting6">
-        <a class="button is-info">Next ></a>
+      <a class="button is-info">Next ></a>
     </div>
     <div class="setting" id="setting7">
-        <a class="button is-info">Next ></a>
+      <a class="button is-info">Next ></a>
     </div>
-   </div>
+  </div>
 </body>
+
 </html>
