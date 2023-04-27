@@ -1,4 +1,6 @@
 apt update
 apt install wget -y
-wget https://download.opera.com/download/get/?id=61379&location=424&nothanks=yes&sub=marine&utm_tryagain=yes
-dpkg -i opera-*.deb
+wget -qO- https://deb.opera.com/archive.key | apt-key add - 
+echo deb https://deb.opera.com/opera-stable/ stable non-free | tee /etc/apt/sources.list.d/opera.list 
+apt update
+apt install oprera-stable
